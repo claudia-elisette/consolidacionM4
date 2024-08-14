@@ -37,18 +37,21 @@ main{
 
 .section{
     grid-area: 2/2/6/3;
+    max-width: 600px;
     display: grid;
     grid-template-rows: 80px auto;
 }
 
-.section__title{
+.section__text{
+    align-self: center;
     font-size: 1.8rem;
     font-weight: 600;
+
 }
 
 .section__cart{
     display: grid;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: max-content max-content max-content;
 }
 .section__item{
     display:grid;
@@ -96,10 +99,17 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    padding: 10px;
     border-top: 1px solid black;
 }
 .total__price{
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+.section__cart input{
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
 }

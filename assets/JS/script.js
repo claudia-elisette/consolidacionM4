@@ -1,15 +1,16 @@
 //Función constructora de Producto
-function Producto(nombre, precio){
+function Producto(imagen, nombre, precio){
+    this.imgSrc = imagen
     this.nombre = nombre
     this.precio = precio
 }
 
 //Definir productos
-let producto1 = new Producto('Leche', 1000)
-let producto2 = new Producto('Pan', 2000)
-let producto3 = new Producto('Queso', 1200)
-let producto4 = new Producto('Mermelada', 890)
-let producto5 = new Producto('Azúcar', 1300)
+let producto1 = new Producto("assets/IMG/leche.jfif", 'Leche', 1000)
+let producto2 = new Producto("assets/IMG/pan.jfif", 'Pan', 2000)
+let producto3 = new Producto("assets/IMG/queso.jfif", 'Queso', 1200)
+let producto4 = new Producto("assets/IMG/mermelada.jfif", 'Mermelada', 890)
+let producto5 = new Producto("assets/IMG/azucar.jfif", 'Azúcar', 1300)
 
 //Función constructora de carrito
 function Carrito(productos){
@@ -27,6 +28,7 @@ let preCarrito = new Carrito()
 //Ciclo a repetir
 let fin = 0
 let totalCompra = 0
+let miCarrito = []
 
 do{
     //Capturar seleccion de productos
@@ -86,7 +88,7 @@ do{
     }while(cantidad == 0)
 
     //crear miCarrito
-    let miCarrito = preCarrito.productos.map((producto)=>{
+    miCarrito = preCarrito.productos.map((producto)=>{
         let newProducto = producto
         newProducto.cantidad = cantidad
 
@@ -116,3 +118,38 @@ do{
 
 alert(`Total de la compra: $${totalCompra}`)
 
+function injectProduct(idElemento, data){
+    let ul = document.getElementById(idElemento)
+    let htmlInject = ""
+
+    data.forEach(elemento => {
+        htmlInject += `
+        <li class="section__item">
+    
+                        <div class="section__img">
+                            <img src="${elemento.imgSrc}" alt="${elemento.nombre}">
+                        </div>
+                        <div class="section__name">
+                        ${elemento.nombre}
+                        </div>
+                        <div class="section__info">
+                            <div class="section__quantity">${elemento.cantidad}x</div>
+                            <div class="section__unitPrice">$${elemento.precio}</div>
+                        </div>
+                        <div class="section__subTotal">
+                            $${(elemento.precio * elemento.cantidad)}
+                        </div>
+    
+                    </li>
+        `
+    })
+
+    ul.innerHTML = htmlInject
+}
+
+injectProduct("productos", miCarrito)
+document.getElementById('total').innerHTML = `$${totalCompra}`
+function confirmarCompra(){
+    alert(`COMPRA REALIZADA CON ÉXITO
+Muchas gracias por su confianza`)
+}

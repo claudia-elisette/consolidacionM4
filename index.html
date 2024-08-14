@@ -21,48 +21,29 @@
 
         <div class="section">
             <div class="section__text">
-                <div class="section__title">Detalle de tu compra</div>
-                <div class="section__subTitle">Esperamos que disfrutes tus productos</div>
+                Detalle de tu pedido
             </div>
     
-            <div class="section__cart" id="injectSection">
+            <div class="section__cart" >
     
-                <ul class="section__menu">
-    
-                    <li class="section__item">
-    
-                        <div class="section__img">
-                            <img src="assets/IMG/leche.jfif" alt="leche">
-                        </div>
-                        <div class="section__name">
-                            Leche
-                        </div>
-                        <div class="section__info">
-                            <div class="section__quantity">2x</div>
-                            <div class="section__unitPrice">$1000</div>
-                        </div>
-                        <div class="section__subTotal">
-                            $2000
-                        </div>
-    
-                    </li>
+                <ul class="section__menu" id="productos">
     
                 </ul>
                 <div class="section__total">
-                    <div class="total__text">
-                        
-                        Total de tu compra:
+                    <div class="total__text"> 
+                        TOTAL:
                     </div>
-                    <div class="total__price">$4000</div>
-            </div>
-    
+                    <div class="total__price" id="total"></div>
+                </div>
+
+               
+                <input type="submit" value="Confirmar" onclick="confirmarCompra()">
             </div>
 
         </div>
         
     </main>
 
-
-    <!-- <script src="assets/JS/script.js"></script> -->
+    <script src="assets/JS/script.js"></script>
 </body>
 </html>
